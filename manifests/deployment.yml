@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: mrathandevmicroservices 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mrathandevmicroservices
+  template:
+    metadata:
+      labels:
+        app: mrathandevmicroservices 
+    spec:
+      containers:
+        - name: mrathandevmicroservices 
+          image: acrrm1.azurecr.io/mrathandevmicroservices
+          ports:
+          - containerPort: 80
