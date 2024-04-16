@@ -1,0 +1,24 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: docker-image-1-deployment
+  labels:
+    app: docker-image-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: docker-image-1
+  template:
+    metadata:
+      labels:
+        app: docker-image-1 
+    spec:
+      containers:
+        - name: docker-image-1 
+          image: acrrm1.azurecr.io/docker_image_1:latest
+          ports:
+          - containerPort: 8080
+          env:
+          - name: ENV_VARIABLE_NAME
+            value: "value"
